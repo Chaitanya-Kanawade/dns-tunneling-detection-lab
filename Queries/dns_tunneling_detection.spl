@@ -1,0 +1,19 @@
+# Long DNS Query Detection
+source=dns.log
+| eval query_length=len(_raw)
+| where query_length > 120
+| table _time _raw query_length
+
+# DNS Traffic Spike Detection
+source="*dns*" evil
+| timechart span=1m count
+
+# High Entropy Detection
+source=dns.log
+| regex _raw="[A-Za-z0-9]{25,}"
+
+# Suspicious DNS Event Search
+source="*dns*" evil
+
+# Iodine DNS Traffic Detection
+source=dns.log tunnel
