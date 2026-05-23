@@ -186,11 +186,5 @@ source=dns.log
 
 
 
-\## Screenshots
-
-
-
-(Add screenshots here)
-
 
 
