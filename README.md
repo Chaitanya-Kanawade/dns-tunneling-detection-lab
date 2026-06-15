@@ -86,11 +86,11 @@ ajd82js92j.tunnel.lab
 
 source=dns.log
 
-| eval query\_length=len(\_raw)
+| eval query_length=len(_raw)
 
-| where query\_length > 120
+| where query_length > 120
 
-| table \_time \_raw query\_length
+| table _time _raw query_length
 
 ```
 
@@ -102,7 +102,7 @@ source=dns.log
 
 ```spl
 
-source="\*dns\*" evil
+source="\*dns\*" 
 
 | timechart span=1m count
 
@@ -118,7 +118,7 @@ source="\*dns\*" evil
 
 source=dns.log
 
-| regex \_raw="\[A-Za-z0-9]{25,}"
+| regex _raw="\[A-Za-z0-9]{25,}"
 
 ```
 
